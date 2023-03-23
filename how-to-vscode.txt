@@ -1,0 +1,49 @@
+#######################################################################
+# 디폴트 터미널 cmd로 하기
+1. 터미널 창 +옆에 v누르고 set default profile 선택하고 cmd로 선택
+2. ctrl shift p : 명령어 팔레트
+  Terminal: Select Default Profile 해서 cmd로...
+
+#######################################################################
+# 디폴트 인터프리터 지정하기
+# https://hoho325.tistory.com/313
+ctrl shift p : 명령어 팔레트
+Python: Select Interpreter 해서 기본 python으로...
+
+#######################################################################
+# 터미널을 처음부터 오픈 폴더에서 열리게 하기
+# https://www.nemonein.xyz/2019/08/2446/
+file - preferences - settings 
+terminal.integreated.cwd 입력
+${fileDirname} 입력
+
+#######################################################################
+# 기본 cmd에서 미니콘다 시작하기
+miniconda3\scripts\activate.bat 실행하면 (base) 시작됨
+
+#######################################################################
+# 디버거 패스를 현재 파일이 있는 폴더로 하기
+# https://blog.naver.com/PostView.nhn?blogId=sjy263942&logNo=222326679448
+# https://code.visualstudio.com/docs/editor/debugging#_launch-configurations
+프로젝트 폴더에 .vscode 폴더를 만들고 launch.json 파일 만들고 다음 내용으로 쓴다.
+수동으로 만들지 않고 자동으로 만들려면
+왼쪽 디버거 탭을 누르면 상단에 톱니바퀴 나오는데 그걸 누르면 파일을 만들 수 있다.
+그럼 기본 틀이 잡히고 마지막에 "cwd": "${fileDirname}"추가
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "cwd": "${fileDirname}"
+        }
+    ]
+}
+
