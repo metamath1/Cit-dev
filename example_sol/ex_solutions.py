@@ -489,13 +489,15 @@ def mean(L):
 def std(L):
     sigma = 0.0
 
-    dev = [ (l - m)**2 for l in L ] # 편차
-    sigma = math.sqrt(mean(dev)) # 편차의 평균의 제곱근
+    m =  sum(L) / len(L)
+    dev = [ (l - m)**2 for l in L ]
+    # sigma = math.sqrt( sum(dev) / (len(dev)-1) )
+    sigma = math.sqrt(mean(dev))
     
     return sigma
         
 
-print(mean(L), std(L), math.stdev(L))
+print(mean(L), std(L))
 ##################################################################### 
 
 

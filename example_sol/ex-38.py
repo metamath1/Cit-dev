@@ -13,10 +13,11 @@ def std(L):
 
     m =  sum(L) / len(L)
     dev = [ (l - m)**2 for l in L ]
+    # sigma = math.sqrt( sum(dev) / (len(dev)-1) )
     sigma = math.sqrt(mean(dev))
     
     return sigma
         
 
-print(mean(L), std(L), math.stdev(L))
+print(mean(L), std(L))
 ##################################################################### 
