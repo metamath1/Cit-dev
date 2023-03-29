@@ -53,9 +53,11 @@ def sigmoid(x):
     # 완성된 ret를 반환한다.
     return ret
 
+# sigmoid 함수를 완성하고 다음 
+# START Mission 2 부분 이후 모든 코드를 주석처리하고 
+# main.py를 실행하면 mission1_test(sigmoid)가 실행되면서
+# 화면에 PASS가 나오게 된다.
 # [!주의!] 다음 코드를 수정하시 마시오.
-# sigmoid 함수를 완성하고 다음 mission1_test()를 실행하여 
-# 화면에 PASS가 나오는지 확인하시오.
 MISSION_1 = mission1_test(sigmoid)
 ###################################################################
 # END Mission 1 
@@ -130,8 +132,11 @@ if MISSION_1:
         for line in lines:
             y.append(line.strip())
 
-    # `X`, `y` 에 알맞게 데이터가 저장되었다면 MISSION_2가 True로 설정되면서
-    # PASS가 출력된다.
+    # `X`, `y` 에 알맞게 데이터가 저장되었다면 
+    # START Mission 3 부분 이후 모든 코드를 주석처리하고 
+    # main.py를 실행하면 mission2_test(X, y)가 실행되면서
+    # 화면에 PASS가 나오게 된다.
+    # [!주의!] 다음 코드를 수정하시 마시오.
     MISSION_2 = mission2_test(X, y)
 ###################################################################
 # END Mission 2 

@@ -105,8 +105,9 @@ def true_days(birth_year, birth_month, birth_day, cur_year, cur_month, cur_day):
 
 
 
-# 여기서부터 시작해서 주석처리 (Mission 4를 수행하기 전에)
+
 if __name__ == '__main__':
+    # 여기서부터 시작해서 주석처리 (Mission 4를 수행하기 전에)
     ################################################################################
     # Mission 5: 적절한 형태로 사용자 입력 받기
     # [!주의!]: Mission 4를 테스트 하기 전에 Mission 5 부분을 주석 처리하시오.
