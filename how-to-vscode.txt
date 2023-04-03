@@ -47,3 +47,21 @@ miniconda3\scripts\activate.bat 실행하면 (base) 시작됨
     ]
 }
 
+환경변수 위치
+설정 > 시스템 > 정보 > 고급시스템설정
+
+환경변수 리스트
+cmd set
+pws Get-ChildItem Env:
+
+path 출력
+cmd echo %path%
+pws echo $env:path
+
+pip.ini 파일위치
+pip config list -v
+
+※ proxy 설정, 위 pip 파일에..
+[global]
+trusted-host= repo.samsungds.net
+index-url= http://repo.samsungds.net:8081/artifactory/api/pypi/pypi/simple

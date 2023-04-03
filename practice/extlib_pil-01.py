@@ -1,5 +1,6 @@
 # https://pillow.readthedocs.io/en/stable/index.html
 # https://realpython.com/image-processing-with-the-python-pillow-library/
+# pip install Pillow
 
 from PIL import Image, ImageFilter  # 라이브러리를 임포트 한다.
 
