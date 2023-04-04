@@ -1,0 +1,5 @@
+f = open('file_w.txt', 'w', encoding='utf-8')
+f.write('파이썬 재밌다.\n')
+f.write('진짜가?\n')
+f.write('아니 ㅠㅠ\n')
+f.close()

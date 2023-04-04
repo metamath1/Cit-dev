@@ -65,3 +65,11 @@ pip config list -v
 [global]
 trusted-host= repo.samsungds.net
 index-url= http://repo.samsungds.net:8081/artifactory/api/pypi/pypi/simple
+
+##########################################################################
+# 기본 인코딩이 cp949이므로 콘솔에서 이렇게 하면 다 깨짐 
+Get-Content stdlib_os-01.py
+
+cmd에서는 chcp 65001 하고
+type stdlib_os-01.py
+하면 한글 잘 나옴
