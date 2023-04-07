@@ -29,8 +29,7 @@ from datetime import date
 from days_utils import MONTH_DAYS, is_leap_year, get_month_days
 
 #####################################################################      
-# Mission 2 : 두 시점의 차이를 계산하는 함수를 작성하시오.
-#             태어난 해에 산 날 수를 구해서 days_part_1에 저장
+# Mission 2 : 두 특정 날짜의 차이를 계산하는 함수 
 def my_days(birth_year, birth_month, birth_day, cur_year, cur_month, cur_day):
     # birth_year: 태어난 해
     # birth_month: 태어난 달
@@ -39,32 +38,32 @@ def my_days(birth_year, birth_month, birth_day, cur_year, cur_month, cur_day):
     # cur_month: 현재 달 또는 차이를 계산하고 싶은 특정 달
     # cur_day: 현재 날 또는 차이를 계산하고 싶은 특정 날
     
+    #####################################################################      
+    # step 1 : 태어난 해에 산 날 수를 구해서 days_part_1에 저장
+
     # birth_year에 산 날 수를 계산하여 이 변수에 저장
     days_part_1 = 0
 
-    # step 1: 태어난 해의 태어난 달에 산 날 수를 계산해서 days_part_1에 저장
-    #         태어난 당일은 포함하지 않는다.
-    days_part_1 += MONTH_DAYS[birth_month] - birth_day # 태어난날 포함이면 +1
+    # 태어난 해의 태어난 달에 산 날 수를 계산해서 days_part_1에 저장
+    # 태어난 당일은 포함하지 않는다.
+    days_part_1 += MONTH_DAYS[birth_month] - birth_day 
     
     # birth_year가 윤년인지를 판단하고 윤년이면 +1
     # is_leap_year()를 사용하여 윤년인지 판단하시오.
     if birth_month == 2 and None:
         days_part_1 += 1
     
-    # step 2: 태어난 해의 태어난 달 다음달 부터 12월 31일까지 날을 계산해서
-    #         days_part_1에 더함
-    #         range에 적당한 범위를 설정하시오.
-    #         step 2에서는 step1과 다르게 Mission 1에서 완성한 get_month_days()를 사용하여
-    #         해당 년도, 월의 날을 윤년을 고려하여 안전하게 가져오시오.
+    # 태어난 해의 태어난 달 다음달 부터 12월 31일까지 날을 계산해서
+    # days_part_1에 더함
+    # range에 적당한 범위를 설정하시오.
     for m in range(None, None):
         days_part_1 += get_month_days(birth_year, m)
-    #####################################################################      
+    
 
-
     #####################################################################      
-    # Mission 3: 태어난 해 다음 해 부터 현재 해 이전 해까지 산 날 수를 계산해서
-    #            days_part_2에 저장
-    #            [!주의!] 반드시 윤년을 체크하여 반영하시오.
+    # step 2: 태어난 해 다음 해 부터 현재 해 이전 해까지 산 날 수를 계산해서 
+    #         days_part_2에 저장
+    #         [!주의!] 반드시 윤년을 체크하여 반영하시오.
     days_part_2 = 0
 
     # 바깥 for 루프에서 년도를 y로 순회하고
@@ -75,17 +74,16 @@ def my_days(birth_year, birth_month, birth_day, cur_year, cur_month, cur_day):
             days_part_2 += None(None, None)
 
     #####################################################################      
-    # 현재 해 산 날 수를 계산해서 days_part_3에 저장
+    # step 3: 현재 해 산 날 수를 계산해서 days_part_3에 저장
     #
     days_part_3 = 0
 
-    # step 1: 태어난 해와 현재 해가 다른 경우만 다루기 때문에
-    #         1월 부터 현재 달 이전 달까지 산 날수를 모두 계산해서
-    #         days_part_3에 저장
+    # 1월 부터 현재 달 이전 달까지 산 날수를 모두 계산해서
+    # days_part_3에 저장
     for m in range(None, None):
         days_part_3 += get_month_days(cur_year, m)
         
-    # step2: 현재 달의 산 날 수를 days_part_3에 더함
+    # step 3: 현재 달의 산 날 수를 days_part_3에 더함
     days_part_3 += None
     
     # 세 개 파트로 나눠서 계산한 날 수를 합산해서 반환하시오.
@@ -96,21 +94,22 @@ def my_days(birth_year, birth_month, birth_day, cur_year, cur_month, cur_day):
 #################################################################
 # 검증 함수
 # python의 datetime.date를 사용해서 정확한 날 수를 계산
+# my_days()를 검증할 목적으로 사용
 def true_days(birth_year, birth_month, birth_day, cur_year, cur_month, cur_day):
     d1 = date(birth_year, birth_month, birth_day)
     d2 = date(cur_year, cur_month, cur_day)
     delta = d2 - d1
     
-    return delta.days # 태어난날 포함이면 +1
+    return delta.days 
 
 
 
 
 if __name__ == '__main__':
-    # 여기서부터 시작해서 주석처리 (Mission 4를 수행하기 전에)
+    # 여기서부터 시작해서 주석처리 (Mission 3를 수행하기 전에)
     ################################################################################
-    # Mission 5: 적절한 형태로 사용자 입력 받기
-    # [!주의!]: Mission 4를 테스트 하기 전에 Mission 5 부분을 주석 처리하시오.
+    # Mission 4: 적절한 형태로 사용자 입력 받기
+    # [!주의!]: Mission 3를 테스트 하기 전에 Mission 4 부분을 주석 처리하시오.
     #
     # 다음 입력을 지정된 변수에 입력받으시오.
     # 태어난 연도: birth_year
@@ -167,20 +166,21 @@ if __name__ == '__main__':
         cur_day = filter_int_input("현재 일을 입력: ")
         
         break
-# 여기까지 주석처리 (Mission 4를 수행하기 전에)
+    # 여기까지 주석처리 (Mission 3를 수행하기 전에)
 
     ################################################################################
-    # Mission 4: 검증, 아래 두 출력 결과는 동일해야 함
-    # 위 Mission 5 부분을 전체 주석처리하고 
+    # Mission 3: 검증, 아래 두 출력 결과는 동일해야 함
+    # 위 Mission 4 부분을 전체 주석처리하고 
     # my_days()에 적당한 연도, 월, 일을 직접 입력하고
     # 동일한 숫자를 true_days()에 입력해서 두 결과가 동일하기 나오는지 검증하시오.
-    # 
+    # 커맨드라인에서 이 파일을 다음처럼 실행하여 같은 결과가 나와야 함
+    # python main.py
     print('내가 계산한 날 수      : ', my_days(birth_year, birth_month, birth_day, cur_year, cur_month, cur_day) )
     print('datetime이 계산한 날 수: ',  true_days(birth_year, birth_month, birth_day, cur_year, cur_month, cur_day) )
 
     # 동일한 숫자가 출력되면 이 파일과 같은 폴더에 있는 test.py를 실행해서
     # 10만개 무작위 날짜에 대해서 테스트를 수행하시오.
-    # Mission 4가 성공적으로 통과되었으면 Mission 5를 수행하시오.
-    # Mission 5를 수행하기 전에
+    # Mission 3가 성공적으로 통과되었으면 Mission 4를 수행하시오.
+    # Mission 4를 수행하기 전에
     # 직접 입력한 연도, 월, 일을 다시 birth_year, birth_month, birth_day
     # cur_year, cur_month, cur_day로 돌려놓으시오.
