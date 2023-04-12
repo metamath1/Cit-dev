@@ -23,6 +23,7 @@ turtle.color('red')
 turtle.dot(15)
 turtle.color('black')
 turtle.shape('turtle')
+turtle.penup()
 
 # 뒤집어진 직각삼각형
 # for y in range(0, 200, 20):
@@ -33,13 +34,30 @@ turtle.shape('turtle')
 #         turtle.dot(10)
 
 # 피라미드
+# def draw_pyramid(org_x, org_y, n):
+#     for y in range(n):
+#         for x in range(n-y):
+#             turtle.penup()
+#             turtle.goto(org_x + x*20 + (20/2)*y , org_y + y*20)
+#             turtle.pendown()
+#             turtle.dot(10)
+
 def draw_pyramid(org_x, org_y, n):
-    for y in range(n):
-        for x in range(n-y):
-            turtle.penup()
-            turtle.goto(org_x + x*20 + (20/2)*y , org_y + y*20)
-            turtle.pendown()
+    w = n*2-1 
+
+    for i in range(n):
+        y = i * 20
+        for j in range(w-(i*2)):
+            x = j * 20
+
+            if i == 0 and j == 0:
+                turtle.color('green')
+            else:
+                turtle.color('black')
+
+            turtle.goto(org_x + x+20*i, org_y + y)
             turtle.dot(10)
+    turtle.home()
 
 x = None
 y = None
