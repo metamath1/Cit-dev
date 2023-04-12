@@ -137,7 +137,8 @@ def make_test_cases(n):
         cases.append( 
             ( 
                 '\n'.join(inputs), # 일련의 입력
-                ( '\n'.join(outputs)+'\n'+RESULT_MSG1+str(my_delta)+'\n'+RESULT_MSG2+str(delta) ).strip() # 기대되는 출력
+                ( '\n'.join(outputs)+'\n'+RESULT_MSG1+str(my_delta)+'\n'+RESULT_MSG2+str(delta) ).strip(), # 기대되는 출력
+                cleaned_input
             )
         )
 
@@ -152,10 +153,10 @@ test_cases = make_test_cases(10)
 # ]
 
 # Run tests
-for i, (test_input, expected_output) in enumerate(test_cases):
+for i, (test_input, expected_output, cleaned_input) in enumerate(test_cases):
     if test_main(test_input, expected_output):
         test_input = test_input.replace('\n', '|')
-        print(f"[PASS] Test case {i + 1}: {test_input}")
+        print(f"[PASS] Test case {i + 1}: {test_input}", cleaned_input)
     else:
         print(f"[FAIL] Test case {i + 1}")
         print(f"Test case {i+1}:", test_cases[i])
