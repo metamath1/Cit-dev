@@ -15,6 +15,13 @@ def is_leap_year(year):
     else:
         return False
 
+
+
+
+
+
+
+
 #####################################################################      
 # Mission 1 : 년도와 달을 입력받아 그 달의 날 수를 반환하는 함수를 완성하시오.
 # 주어진 월의 총 일수를 반환하는 함수
@@ -23,14 +30,26 @@ def is_leap_year(year):
 # 함수가 완셩되었다면 이 파일을 메인 실행파일로 실행하여
 # 1988년, 1995년에 대해서 제대로 된 결과를 출력하는지 확인하시오.
 def get_month_days(year, month):
-    # 달의 날짜 수에 +1해야되는 경우를 여기서 처리하세요.
-    if None:
+    # 달의 날짜 수에 +1해야되는 경우를 여기서 처리하시오.
+    # if 문에서 year이 윤년인지는 이미 체크되고 있고 
+    # month가 2월인지 추가로 체크하는 논리식을 and로 연결하시오.
+    if is_leap_year(year) and None:
+        # 이 함수가 전달받은 month 변수를 이용하여 
+        # 모든 달의 날짜가 적혀있는 MONTH_DAYS에서 해당 달의 날짜를 
+        # 조회 하시오.
         return MONTH_DAYS[None] + 1
     else:
         return MONTH_DAYS[None]
     
 
-# [!주의!] 이 함수의 코드를 수정하지 마세요
+
+
+
+
+
+
+############################################################################################
+# [!주의!] 이 함수의 코드를 수정하지 마시오.
 # 무작위 날짜를 샘플링하는 함수
 def sampling_days(test_term=60, from_next_year=False):
     # test_term: 앞 연도부터 몇년 간격안에서 샘플링할지 지정하는 숫자 기본 60년
@@ -75,5 +94,7 @@ def sampling_days(test_term=60, from_next_year=False):
     return birth_year, birth_month, birth_day, cur_year, cur_month, cur_day
 
 if __name__ == '__main__':
+    # 현재 이 파일을 python days_utils.py 로 실행하면 다음 두줄이 실행되면서
+    # 두 출력의 결과는 29, 28로 나와야 함.
     print('1988년 2월의 날수 ', get_month_days(1988, 2))
-    print('1995년 2월의 날수 ',get_month_days(1995, 2))
+    print('1995년 2월의 날수 ', get_month_days(1995, 2))

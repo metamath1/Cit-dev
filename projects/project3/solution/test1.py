@@ -1,4 +1,4 @@
-# BLANK
+# SOLUTION
 from days_utils import *
 from main import *
 
