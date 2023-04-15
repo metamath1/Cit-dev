@@ -14,19 +14,18 @@ from mission_test import mission1_test, mission2_test, mission3_test
 #
 #       1
 # ----------------
-# 1 + math.exp(-x)
+# 1 + e^(-x)
 #
 # 위 식에서 x는 이 함수로 전달되는 입력값 x이며 
-# math.exp()는 math 모듈에서 제공하는 지수 함수를 계산해 주는 함수이다.
-# 지수함수는 a**x 꼴의 함수로 math.exp()는 a가 약 2.718정도 값을 가지는 e라는 숫자
-# 일때 함수값을 계산해주는 함수이다.
+# e^(-x)는 math 모듈에서 제공하는 exp() 함수를 사용하여 계산할 수 있다.
 # x로 숫자 하나를 입력받아 sigmoid 함수 값을 계산하는 함수를 다음처럼 작성할 수 있다.
 # 아래 함수는 sigmoid함수를 구현한 예시인데 이 함수는 입력으로 숫자 하나를 입력 받고
 # 출력으로 숫자 하나를 반환한다.
+# None에 적당한 라이브러리 이름을 적어 함수를 완성하시오.
 def sigmoid_one_value(x):
-    return 1 / ( 1 + math.exp(-x) )
+    return 1 / ( 1 + None.exp(-x) )
 
-# 첫번째 미션에서 할 코딩은 x에 숫자 여러 개가 들어 있는 리스트가 주어지면
+# 이제 첫번째 미션에서 할 코딩은 x에 숫자 여러 개가 들어 있는 리스트가 주어지면
 # 리스트의 각 숫자에 대해서 sigmoid 함수값을 모두 구해 그 값을 저장한
 # 리스트를 되돌리는 함수를 작성하는 것이다.
 
@@ -41,7 +40,7 @@ def sigmoid_one_value(x):
 def sigmoid(x):
     # x: 숫자 여러개가 들어있는 리스트
 
-    # x안에 있는 숫자값 하나에 대해서 계산된 함숫값을 저장할 리스트를 정의
+    # x안에 있는 숫자값 하나에 대해서 계산된 함숫값을 저장할 빈 리스트를 정의
     ret = None
     
     # x안에 있는 숫자에 대해서 루프를 돌면서
@@ -103,22 +102,22 @@ if MISSION_1:
 
     # `X_temp`에 모든 숫자를 순서대로 다 담는다.
     X_temp = []
-    # 파일을 오픈하고
+    # 파일을 read 모들 'r'로 오픈하고
     with None as f:
-        # 오픈된 파일로부터 모든 라인을 읽어온다.
-        lines = f.None()
+        # 오픈된 파일로부터 모든 라인을 리스트 형태로 읽어온다.
+        lines = f.readlines()
 
         # 읽어온 한 라인을 순서대로 순회하면서
         for line in lines:
-            # 읽어온 값은 문자형이므로 실수형으로 바꿔서 X_temp에 추가한다.
+            # 읽어온 값은 문자형이므로 실수형(float)으로 바꿔서 X_temp에 추가한다.
             X_temp.append( None )
 
     # `X_temp`에 있는 숫자를 4개씩 끊어서 `X`에 담는다.
     X = []
     # for 문 순회를 하나씩 하지 않고 4개마다 하나씩 하고
-    for i in None:
+    for i in range(0, len(X_temp), None):
         # i부터 4개씩 X_temp를 슬라이싱 한다.
-        X.append(None)
+        X.append(X_temp[None:None])
 
     # 두번째 작업은 첫번째 작업과 유사하게 data_y.txt에 있는 자료를
     # y에 저장한다.
@@ -127,9 +126,13 @@ if MISSION_1:
     # `y`에 50 라인을 읽어 저장한다.
     # [주의] 읽어온 문자열 좌우에 공백이 없도록 가공해서 y에 저장할것
     y = []
-    with None as f:
+    with open('data_y.txt', 'r') as f:
+        # f에 있는 각 줄을 모두 읽어 리스트로 저장하는 함수를 호출한다.
         lines = f.None()
         for line in lines:
+            # line는 lines에 들어 있는 각 한줄이 저장되어 있으나
+            # 마지막에 줄바꿈 문자가 있을 수 있으므로 이를 벗겨내고
+            # y에 append하시오.
             y.append(None)
 
     # `X`, `y` 에 알맞게 데이터가 저장되었다면 
@@ -177,13 +180,14 @@ if MISSION_1 and MISSION_2 :
         #         각 위치에 맞게 곱하고 모두 더한다.
         #         즉 다음 식처럼 숫자값 z를 계산한다.
         #         z = x[0]*weight[0] + x[1]*weight[1] + x[2]*weight[2] + x[3]*weight[3]
-        #         이렇게 계산된 z에 intercept를 더한다.
-        #         z = z + intercept
+        #         하지만 여기서 이렇게 모든 숫자를 나열해서 직접 곱하지 않고
+        #         for 루프를 사용한다. 위 식에서 변하는 숫자를 주의 해서 다음 for 문을 완성하시오.
         z = 0
         for i in range(4):
-            # weight에 숫자 네 개와 곱해서 더한다.
+            # x의 i번째 요소와 weight의 i번째 요소를 곱해서 z에 누적 합산한다.
             z += None
-        # 마지막으로 intercept를 더한다.    
+
+        # 이렇게 계산된 z에 intercept를 더한다.
         z += None
 
         # step 3. 계산된 z를 Z 리스트에 추가한다.
@@ -193,34 +197,40 @@ if MISSION_1 and MISSION_2 :
     # step 4. Z에 들어있는 계산된 모든 값(50개) 들을 sigmoid()에 입력시켜 
     #         변환된 값 50개를 반환 받는다.
     #         sigmoid()로 부터 반환된 값을 y_preds에 저장한다.
-    #         이렇게 저장된 값은 모두 0에서 1사이의 숫자값으로 변환 되어 있어야 한다.
+    #         이렇게 y_preds에 저장된 값은 모두 0에서 1사이의 숫자값으로 변환 되어 있어야 한다.
     y_preds = None(Z)
 
     # step 5. y_preds에 저장된 50개 값이 
     # 0.5보다 같거나 크면 y_pred_i에 'verginica'를 대입
     # 0.5보다 작으면 y_pred_i에 'not verginica'를 대입
     # 이렇게 해서 각 50개 샘플에 대해서 꽃의 품종을 결정한다.
-    incorrect = 0
+
+    # 맞춘 개수를 기록할 변수를 초기화 한다.
+    correct = 0
 
     # 정답이 적힌 y안에 요소들과 예측한 y_preds의 요소를
     # 순서대로 하나씩 가져와 비교한다. 
-    # 두 리스트 y, y_preds를 동시에 for 문으로 순회하시오.
-    for y_i, y_pred_i in None(None, None):
+    # 두 리스트 y, y_preds를 동시에 for 문으로 순회하면서
+    # y_pred_i의 값이 0.5이상이면 y_pred_i에 'verginica'를
+    # 그렇지 않으면 'not verginica'를 대입한다.
+    # if 문에 적당한 조건문을 완성하시오.
+    for y_i, y_pred_i in zip(y, y_preds):
         if None:
             y_pred_i = 'verginica'
         else:
             y_pred_i = 'not verginica'
 
-        # step 6. 정답 꽃품종 y_i와 예측 꽃 품종 y_pred_i가 다르면 
-        # incorrect를 1 증가 시킨다.
+        # step 6. 정답 꽃품종 y_i와 예측 꽃 품종 y_pred_i가 같으면 
+        # correct를 1 증가 시킨다.
         if None:
-            incorrect += 1
+            correct += 1
     
     # 결과를 출력한다.
-    print("    틀린 개수: ", incorrect , "개", sep='')
-    print('    정확도: ',  (len(X)-incorrect) / len(X), sep='' )
+    print("    맞힌 개수: ", correct , "개", sep='')
+    print('    정확도: ',  correct / len(X), sep='' )
 
     # 제대로 진행되었다면 화면에 PASS 가 출력된다.
+    incorrect = len(X) - correct
     mission3_test(incorrect)
 ###################################################################
 # END Mission 3 
