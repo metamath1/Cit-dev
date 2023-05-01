@@ -163,9 +163,9 @@ if __name__ == '__main__':
             user_input = input(msg)
 
             # 사용자로 부터 입력받은 입력에 숫자만 들어있기를 원하기 때문에
-            # user_input.isdigit()의 결과를 무엇과 비교판단해야 할지 생각하고
+            # user_input.isdigit()를 사용하여 사용자의 입력에 숫자만 들어있는지 검증하기 위해
             # 적당한 조건문을 사용하시오.
-            # isdigit()은 숫자만있다면 True, 숫자 이외의 값이 있다면 False를 반환
+            # isdigit()은 user_input에 숫자만있다면 True, 숫자 이외의 값이 있다면 False를 반환
             if user_input.isdigit() == False: # not user_input.isdigit():
                 print("숫자만 입력하세요.")
             else:

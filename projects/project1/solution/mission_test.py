@@ -17,7 +17,11 @@ def mission2_test(x, y):
         check_x2 = True
         for sample in x:
             if len(sample) == 4:
-                pass
+                # 숫자 네개가 모두 float이어야지 통과
+                if isinstance(sample[0], float) and isinstance(sample[1], float) and isinstance(sample[2], float) and isinstance(sample[3], float):
+                    pass
+                else:
+                     check_x2 = False
             else:
                 check_x2 = False
         
