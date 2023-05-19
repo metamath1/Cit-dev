@@ -1,40 +1,25 @@
-#####################################################################
-# 실습문제30: 트리 별모양 출력   01.다양한형태의 제에문 14번 슬라이드
+#####################################################################        
+# 실습문제30: updown숫자 맞추기   01.다양한형태의 제어문 20번 슬라이드
 # lab 30
+import random
 
-# double for version
-n = 5
-# i   : 0, 1, 2, 3, 4
-# 공백: 4, 3, 2, 1, 0
-# 별표: 1, 3, 5, 7, 9
+nums = list(range(1, 101))
+num = random.choice(nums)
 
-for i in range(n):
-    star = ''
-    space = ''
-    
-    for j in range(n-i-1):
-        space += '-'
+print("컴퓨터가 숫자를 골랐습니다.")
+n = -1
+j = 0
 
-    for k in range(i*2+1):
-        star += '*'
+while n != num:
+    n = int( input("(1~100) 숫자를 맞춰 보세요 >>>") )
+    j += 1
 
-    print(space+star)
+    if n > num:
+        print('donw 입니다.')
+    elif n < num:
+        print('up 입니다.')
+    else:
+        print('정답입니다!')
+        print('총시도 횟쉬: ', j)
+        break
 ##################################################################### 
-
-
-# pythonic version
-n = 5
-for i in range(n):
-    print(f"{'+'*(i*2+1):^{n*2-1}}")
-##################################################################### 
-
-
-n = 5
-w = n*2-1 
-for i in range(n):
-    s =  '+' * (i*2+1)
-    margin = w - len(s)
-    margin = ' ' * int(margin / 2)
-    print(margin, s, margin, sep='')
-##################################################################### 
-

@@ -1,19 +1,22 @@
 #####################################################################
-# 실습문제36: 학생이름을 키로하고 총점과 평균이 저장된 리스트를 값으로 가지는 사전 만들기
+# 실습문제36: 로또번호 추출기 여러 게임   02. 리스트 23번 슬라이드
 # lab 36
-data = [
-    {'name':'철수', 'math':85, 'eng':90, 'sci':75},
-    {'name':'준호', 'math':73, 'eng':85, 'sci':93},
-    {'name':'영희', 'math':92, 'eng':88, 'sci':90}
-]
+import random
 
-ret = {}
+games = 5
+nums = range(1,46)
+lottos = []
 
-for d in data:
-    s = d['math'] + d['eng'] + d['sci']
-    m = s / 3
-    ret[d['name']] = [s, round(m, 3)]
+for game in range(games):
+    lotto = []
 
-print(ret)
-#####################################################################
+    while len(lotto) < 6:
+        n = random.choice(nums)
+        # if not(n in lotto):
+        if n not in lotto:
+            lotto.append(n)
+    
+    lottos.append(lotto)
+
+print(lottos)
 

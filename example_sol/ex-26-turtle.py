@@ -8,13 +8,12 @@ t.penup()
 
 # double for version
 n = 5
-w = n*2-1 
 
 for i in range(n):
     y = i * 20
-    for j in range(w-(i*2)):
-        x = j * 20
-        t.goto(x+20*i, y)
+    for j in range(n-i):
+        x = j*20
+        t.goto(x, y)    
         t.dot(10)
-    
+
 c = input()

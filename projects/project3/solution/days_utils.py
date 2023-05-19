@@ -98,3 +98,6 @@ if __name__ == '__main__':
     # 두 출력의 결과는 29, 28로 나와야 함.
     print('1988년 2월의 날수 ', get_month_days(1988, 2))
     print('1995년 2월의 날수 ', get_month_days(1995, 2))
+    # 두 출력의 결과는 31, 31로 나와야 함.
+    print('1988년 3월의 날수 ', get_month_days(1988, 3))
+    print('1995년 3월의 날수 ', get_month_days(1995, 3))

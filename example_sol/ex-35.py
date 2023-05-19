@@ -1,16 +1,33 @@
 #####################################################################
-# 실습문제35: 영한사전 -> 한영사전   
+# 실습문제35: 로또번호 추출기   02. 리스트 19번 슬라이드
 # lab 35
-En2Ko = {
-    'book': '책',
-    'snake': '뱀',
-    'language': '언어'
-}
+import random 
 
-Ko2En = {}
+nums = range(1,46)
+lotto = []
 
-for k, v in En2Ko.items():
-    Ko2En[v] = k
+while len(lotto) < 6:
+    n = random.choice(nums)
+    is_in = False
+    for i in lotto:
+        if i == n:
+            is_in = True
 
-print(Ko2En)
+    if not is_in:
+        lotto.append(n)
+
+print(lotto)
+
+####################################################################
+
+nums = range(1,46)
+lotto = []
+
+while len(lotto) < 6:
+    n = random.choice(nums)
+    # if not(n in lotto):
+    if n not in lotto:
+        lotto.append(n)
+
+print(lotto)
 ##################################################################### 
