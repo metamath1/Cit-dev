@@ -73,3 +73,29 @@ Get-Content stdlib_os-01.py
 cmd에서는 chcp 65001 하고
 type stdlib_os-01.py
 하면 한글 잘 나옴
+
+##########################################################################
+# 디폴트를 PS로 두고 PS가 뜰 때 conda activate 시키기
+파워쉘을 열고 miniconda3\Scripts로 가서
+.\conda init powershell 
+이렇게 하면 C:\Users\metam\OneDrive\Documents\WindowsPowerShell 에
+profile.ps1 이 생기면어 이 파일이 파워쉘이 켜질 때 로딩됨
+그런데 보안정책때문에 실행을 못한다는 에러가 나면 
+파워쉘에서 다음을 실행
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+이렇게 하면 파워쉘 켜질 때 자체적으로 base 환경이 activate 됨
+그러면 다음처럼 
+(base) PS G:\내 드라이브\my\lecture\2023\citizen_coder> C:/Users/metam/miniconda3/Scripts/activate
+(base) PS G:\내 드라이브\my\lecture\2023\citizen_coder> conda activate torchflow
+(torchflow) PS G:\내 드라이브\my\lecture\2023\citizen_coder>
+원하는 환경을 자동으로 activate 시킬 수 있는데...
+첫번째 줄은 실행 안되도 되는 부분이라서 좀 문제가 있음
+이걸 막기 위해
+# https://code.visualstudio.com/docs/python/environments#_manually-specify-an-interpreter
+python.terminal.activateEnvironment 를 false로 하면 (base)로만 시작하고
+아무것도 안함
+그러면 conda activate torchflow만 해주면 됨
+
+그런데 이렇게 해놓으면 cmd로 터미널을 열때 
+C:/Users/metam/miniconda3/Scripts/activate 를 실행하고
+conda activate torchflow를 해야 되기 때문에 좀 귀찮아짐 
