@@ -1,16 +1,23 @@
 #####################################################################
-# 실습문제40: 369게임
+# 실습문제40: 로또 여러게임 만들기 함수
 # lab 40
-def f369(n):
-    if not isinstance(n, int) or n <= 0:
-        print("자연수만 입력하세요.")
-        return None
-    
-    str_n = str(n)
+import random
 
-    print( '짝'*(str_n.count('3') + str_n.count('6') + str_n.count('9')) )
+games = 5
+nums = range(1,46)
+lottos = []
 
-f369(-1)
-f369('aaa')
-f369(3.4)
-f369(33569)
+def make_games(L):
+    lottos = []
+    for lotto in L:
+        while len(lotto) < 6:
+            n = random.randrange(1, 46)
+            if n not in lotto:
+                lotto.append(n)
+        lottos.append(lotto)
+
+    return lottos
+
+L = [[10, 3], [40, 31, 1], []] 
+games = make_games(L)
+print(games)
