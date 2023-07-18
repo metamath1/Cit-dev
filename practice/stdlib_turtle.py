@@ -22,12 +22,12 @@ turtle.dot(15)
 turtle.color('black')
 
 # 뒤집어진 직각삼각형
-for y in range(0, 200, 20):
-    for x in range(0, y+20, 20):
-        turtle.penup()
-        turtle.goto(x, y)
-        turtle.pendown()
-        turtle.dot(10)
+# for y in range(0, 200, 20):
+#     for x in range(0, y+20, 20):
+#         turtle.penup()
+#         turtle.goto(x, y)
+#         turtle.pendown()
+#         turtle.dot(10)
 
 # 피라미드
 # n = int(input('피라미드 층 수: '))
@@ -37,5 +37,37 @@ for y in range(0, 200, 20):
 #         turtle.goto(x*20 + (20/2)*y , y*20)
 #         turtle.pendown()
 #         turtle.dot(10)
+
+def heading_right():
+    # 거북이의 머리를 무조건 오른쪽(각도로 0도)로 만든다.
+    cur_direction = turtle.heading()
+    turtle.right(cur_direction)
+
+# 거북이 머리 오른쪽으로 실험
+print()
+turtle.shape('turtle')
+turtle.left(100)
+c = input("현재 거북이 머리를 화면 오른쪽(동쪽)으로 두게 합니다.")
+heading_right()
+
+
+# 원그리기 케이스 1: 진행방향에서 반시계방향으로 전진, 진행방향 왼쪽에 원이 생김
+c = input("현재 진행방향 왼쪽에 원을 전진하면서 그립니다.")
+turtle.circle(100, 360)
+
+# 원그리기 케이스 2: 진행방향에서 시계방향으로 후진, 진행방향 왼쪽에 원이 생김
+c = input("현재 진행방향 왼쪽에 원을 후진하면서 그립니다.")
+turtle.circle(100, -360)
+
+
+
+# 원그리기 케이스 3: 진행방향에서 시계방향으로 전진, 진행방향 오른쪽에 원이 생김
+c = input("현재 진행방향 오른쪽에 원을 전진하면서 그립니다.")
+turtle.circle(-100, 360)
+
+
+# 원그리기 케이스 4: 진행방향에서 반시계방향으로 후진, 진행방향 오른쪽에 원이 생김
+c = input("현재 진행방향 오른쪽에 원을 후진하면서 그립니다.")
+turtle.circle(-100, -360)
 
 c = input()
